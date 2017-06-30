@@ -1,0 +1,18 @@
+﻿<Page x:Class="BD_Terminal.View.MsimeteorSites"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BD_Terminal.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="150" d:DesignWidth="290"
+      Title="MeteorSites">
+    <Grid x:Name="mGrid" Height="150">
+        <Canvas x:Name="mCanvasPanel" Background="White" >
+        </Canvas>
+        <Label Content="MeteorSites" FontSize="15" Foreground="#FFADBCC9"/>
+        <Line X1="171" Y1="39" X2="171" Y2="123" StrokeDashArray="3" Stroke="Black" StrokeThickness="1"/>
+        <Line X1="132" Y1="81" X2="211" Y2="81" StrokeDashArray="3" Stroke="Black" StrokeThickness="1"/>
+        <Canvas x:Name="mCanvasDraw"></Canvas>
+    </Grid>
+</Page>

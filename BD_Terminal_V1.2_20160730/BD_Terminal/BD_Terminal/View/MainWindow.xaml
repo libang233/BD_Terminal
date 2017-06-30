@@ -1,0 +1,26 @@
+﻿<Window x:Class="BD_Terminal.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BD_Terminal.View"
+        mc:Ignorable="d" Background="White"
+        Title="BD_Terminal_V1.0.1" Height="600" Width="800" ResizeMode="CanMinimize" 
+        Closed="Window_Closed">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <WrapPanel Grid.ColumnSpan="2" Margin="0,0,-6,0">
+            <Frame x:Name="BaseInofrFrame" 
+                Height="570" Width="200"
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" Panel.ZIndex="1"/>
+            <StackPanel HorizontalAlignment="Left" Height="570" Margin="0,0,0,0" VerticalAlignment="Top" Width="590" Grid.ColumnSpan="2">
+                <Frame x:Name="EditFrame" Content="Frame" Height="557"
+                   Margin="0,0,0.4,0"/>
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Window>

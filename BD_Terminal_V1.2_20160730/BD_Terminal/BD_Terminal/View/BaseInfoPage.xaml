@@ -1,0 +1,123 @@
+﻿<Page x:Class="BD_Terminal.View.BaseInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BD_Terminal.View"
+      mc:Ignorable="d" d:DesignWidth="200"
+      Background="White"
+      Title="BaseInforPage" Height="570">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="570" Margin="0,0,0,0" VerticalAlignment="Top" Width="200">
+            <Grid  Height="120">
+                <StackPanel Margin="0,0,0,-17">
+                    <Label Content="Config" HorizontalContentAlignment ="Left" FontSize="15" Foreground="#FFADBCC9" Margin="0,0,0,0"/>
+                    <WrapPanel HorizontalAlignment="Center" Height="24" Margin="0,0,0,0" VerticalAlignment="Top" Width="184">
+                        <Label x:Name="lab_com" Content="Com" Width="66" Height="24" />
+                        <ComboBox x:Name="commbox_com" Width="111" Height="20" MouseEnter="commbox_com_MouseEnter"/>
+                    </WrapPanel>
+                    <WrapPanel HorizontalAlignment="Center" Height="27" Margin="8,0" VerticalAlignment="Top" Width="184">
+                        <Label x:Name="lab_baudRate" Content="Baudrate" Width="66" Height="27"/>
+                        <ComboBox x:Name="combox_baudRate" Width="111" FontSize="13.33" HorizontalAlignment="Center" Height="20">
+                            <ComboBox.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </LinearGradientBrush>
+                            </ComboBox.Background>
+                        </ComboBox>
+                    </WrapPanel>
+
+                    <Button x:Name="btn_connect_com" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"
+					Background="White" Height="22">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border BorderBrush="#FF457CDC" BorderThickness="1.5" CornerRadius="8,8,8,8" Name="PART_Background">
+                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Rectangle StrokeThickness="2"  Stroke ="#FFADBCC9" Width="120" Margin="0,13,0,0" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <Rectangle Fill="Transparent" Stroke="Transparent" Margin="10,90,10,8" MouseLeftButtonDown="btn_connect_com_Click"/>
+            </Grid>
+            <Label x:Name="label" Content="Base Info" HorizontalContentAlignment ="Left" FontSize="15" Foreground="#FFADBCC9" Margin="0,5,0,0"/>
+            <WrapPanel Height="25" Margin="0,5,0,0">
+                <Label Content="经度" Width="80" HorizontalContentAlignment="Center" />
+                <Label x:Name="label_longitude" Content="" Width="120" Height="25" />
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="纬度" Width="80" HorizontalContentAlignment="Center" />
+                <Label x:Name="lable_latitude" Content="" Width="120" Height="25"/>
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="UTC时间" Width="80" HorizontalContentAlignment="Center"/>
+                <Label x:Name="lable_UTCtime" Width="120" Height="25"></Label>
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="海拔高度" Width="80" HorizontalContentAlignment="Center" />
+                <Label x:Name="lable_altitude" Content="" Width="120" Height="25" />
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="椭球高度" Width="80" HorizontalContentAlignment="Center" />
+                <Label x:Name="lable_Ellipsoidal_height" Width="120" Height="25" />
+            </WrapPanel>
+            <WrapPanel Height="27">
+                <Label Content="卫星数" Width="80" HorizontalContentAlignment="Center" />
+                <Label x:Name="lable_satellite" Content="" Width="120" Height="28" />
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="定位精度" Width="80" HorizontalContentAlignment="Center" />
+                <Label x:Name="lable_pos_acc" Content="" Width="120" Height="25"/>
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="伪距" Width="80" HorizontalContentAlignment="Center"/>
+                <Label x:Name="lable_pseudorange" Content="----" Width="120" Height="25"/>
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="伪距率" Width="80" HorizontalContentAlignment="Center"/>
+                <Label  x:Name="lable_pseudorangeRate" Content="----" Width="120" Height="25"/>
+            </WrapPanel>
+
+            <WrapPanel Height="25">
+                <Label Content="GDOP" Width="80" HorizontalContentAlignment="Center"/>
+                <Label x:Name ="lable_GDOP" Content="----" Width="120" Height="25"/>
+            </WrapPanel>
+            <WrapPanel Height="25">
+                <Label Content="PDOP" Width="80" HorizontalContentAlignment="Center"/>
+                <Label x:Name ="lable_PDOP" Content="" Width="120" Height="25"/>
+            </WrapPanel>
+            <WrapPanel Height="27">
+                <Label Content="高斯坐标 :X" Width="80" HorizontalContentAlignment="Center"/>
+                <Label x:Name ="lable_GAS_coordination_X" Content="" Width="120" Height="28"/>
+            </WrapPanel>
+            <WrapPanel Height="27">
+                <Label Content="高斯坐标 :Y" Width="80" HorizontalContentAlignment="Center"/>
+                <Label x:Name ="lable_GAS_coordination_Y" Content="" Width="120" Height="28"/>
+            </WrapPanel>
+            <Rectangle StrokeThickness="2" Stroke ="#FFADBCC9" Width="120" Margin="0,5,0,0" HorizontalAlignment="Left"/>
+            <WrapPanel Height="80">
+                <Label Content="定位状态" Width="80" HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
+                <local:GpsState x:Name="GpsState" Width="40" Height="40" Margin="0,15,0,0"/>
+            </WrapPanel>
+        </StackPanel>
+        <Grid Margin="80,171,19,372" Background="White" x:Name="LongStd_Grid" Visibility="Hidden">
+            <Rectangle Stroke="#FFADBCC9" StrokeThickness="1"/>
+            <WrapPanel>
+                <Label Content="STD:"></Label>
+                <Label x:Name="label_longstd" Width="64"></Label>
+            </WrapPanel>
+        </Grid>
+        <Grid Margin="80,198,19,345" Background="White" x:Name="LatStd_Grid" Visibility="Hidden">
+            <Rectangle Stroke="#FFADBCC9" StrokeThickness="1"/>
+            <WrapPanel>
+                <Label Content="STD:" Width="36"></Label>
+                <Label x:Name="label_latstd" Width="64" Height="27"/>
+            </WrapPanel>
+        </Grid>
+        <Rectangle Margin="0,158,0,385" MouseEnter="WrapPanel_MouseEnterLongWarp" MouseLeave="WrapPanel_MouseLeaveLongWarp" Fill="#00000000"></Rectangle>
+        <Rectangle Margin="0,185,0,361" MouseEnter="WrapPanel_MouseEnterLatWarp" MouseLeave="WrapPanel_MouseLeaveLatWarp" Fill="#00000000"></Rectangle>
+    </Grid>
+</Page>
